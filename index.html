@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для Інни ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🎁 Подарунок для Інни Гайдай 🎁</h1>
+
+        <div class="gift" id="gift">
+            <img class="lid" id="lid" src="box1.png" alt="Кришка подарунка">
+            <img class="box" src="box2.png" alt="Низ подарунка">
+        </div>
+
+        <button onclick="openGift()">Відкрити подарунок</button>
+
+    </div>
+
+    <div class="message" id="message">
+
+        <h2>🎉 З Днем Народження! 🎉</h2>
+
+        <p>
+            Бажаю тобі безмежного щастя, міцного здоров'я,
+            усмішок кожного дня, здійснення всіх мрій та багато
+            приємних моментів у житті! 💖
+            <br><br>
+
+            Нехай поруч будуть лише хороші люди,
+            а кожен новий день приносить радість,
+            натхнення та незабутні емоції!
+
+            <br><br>
+
+            ❤️ З любов'ю ❤️
+        </p>
+
+    </div>
+
+    <script>
+
+        function openGift() {
+
+            const gift = document.getElementById("gift");
+            const lid = document.getElementById("lid");
+            const button = document.querySelector("button");
+
+            gift.classList.add("open");
+            lid.style.transform = "";
+            button.style.display = "none";
+            document.querySelector('.container').style.opacity = '0';
+            document.querySelector('.container').style.transition = 'opacity 0.8s ease';
+
+            for (let i = 0; i < 80; i++) {
+
+                let c = document.createElement("div");
+                c.className = "confetti";
+
+                c.style.left = Math.random() * 100 + "vw";
+                c.style.background = `hsl(${Math.random() * 360},90%,60%)`;
+                c.style.animationDuration = 2 + Math.random() * 3 + "s";
+
+                document.body.appendChild(c);
+
+                setTimeout(() => c.remove(), 5000);
+
+            }
+
+            for (let i = 0; i < 40; i++) {
+
+                let h = document.createElement("div");
+                h.className = "heart";
+
+                h.innerHTML = "💖";
+
+                h.style.left = Math.random() * 100 + "vw";
+                h.style.animationDuration = 4 + Math.random() * 4 + "s";
+                h.style.fontSize = 20 + Math.random() * 25 + "px";
+
+                document.body.appendChild(h);
+
+                setTimeout(() => h.remove(), 8000);
+
+            }
+
+            setTimeout(() => {
+                document.getElementById("message").classList.add("show");
+            }, 700);
+
+        }
+
+    </script>
+
+</body>
+
+</html>
